@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #countdown {
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 120px;
+            color: red;
+            font-weight: bold;
+            display: none;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-family: 'Arial Black', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown">10</div>
+
+    <script>
+        window.addEventListener('message', function(event) {
+            const countdownEl = document.getElementById('countdown');
+            
+            switch(event.data.type) {
+                case 'init':
+                    // Initial setup
+                    break;
+                
+                case 'updateCountdown':
+                    countdownEl.style.display = 'block';
+                    
+                    if (event.data.number > 1) {
+                        countdownEl.textContent = event.data.number;
+                        new Audio('sound/tick.mp3').play();
+                    } else if (event.data.number === 1) {
+                        countdownEl.textContent = event.data.number;
+                        new Audio('sound/tick.mp3').play();
+                    } else if (event.data.number === 0) {
+                        countdownEl.textContent = 'START!';
+                        new Audio('sound/lastTick.mp3').play();
+                    }
+                    break;
+                
+                case 'countdownComplete':
+                    setTimeout(() => {
+                        countdownEl.style.display = 'none';
+                    }, 1000);
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>
