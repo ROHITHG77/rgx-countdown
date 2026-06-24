@@ -1,1 +1,1 @@
-Simple countdown script for esx.
+Simple countdown script for fivem.
