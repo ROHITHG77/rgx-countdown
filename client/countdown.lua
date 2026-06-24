@@ -1,5 +1,3 @@
-ESX = exports['es_extended']:getSharedObject()
-
 AddEventHandler('onResourceStart', function(resourceName)
     if (GetCurrentResourceName() ~= resourceName) then return end
     SendNUIMessage({type = 'init'})
