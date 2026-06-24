@@ -13,12 +13,10 @@ files {
 }
 
 client_scripts {
-    '@es_extended/locale.lua',
     'client/countdown.lua'
 }
 
 server_scripts {
-    '@es_extended/locale.lua',
     'server/countdown.lua'
 }
 
