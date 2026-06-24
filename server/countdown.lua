@@ -1,5 +1,3 @@
-ESX = exports['es_extended']:getSharedObject()
-
 local Countdown = {
     isActive = false,
     currentNumber = 0,
